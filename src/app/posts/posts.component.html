@@ -1,0 +1,42 @@
+<div class="row mt-5">
+  <div class="col-8">
+    <form id = "formNewEmployee" name = "formNewEmployee" #employeeData = "ngForm" (ngSubmit) = "findEmployees(employeeData.value, posts)" ng-controller="main">
+      <div class="form-group row mb-0 ml-2">
+        <label for="colFormLabel" class="col-sm-1 col-form-label d-flex justify-content-center">Name</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" name="name" id="colFormLabel" placeholder="name" ngModel>
+        </div>
+        <label for="colFormLabel" class="col-sm-2 col-form-label d-flex justify-content-center">PhoneNumber</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" name="phoneNumber" id="colFormLabel" placeholder="phoneNumber" ngModel>
+        </div>
+        <button type="submit" class="btn btn-success" value="Show Employeess">Show</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-4 d-flex justify-content-end">
+    <a routerLink = "employee" (click) = "refreshObj()"><button class="btn btn-success">Add employee </button></a>
+    <button class="btn btn-danger mx-1" (click) = "deleteEmployeeGroup()">DELETE</button>
+  </div>
+</div>
+
+<table class="table table-striped mt-1">
+  <thead>
+    <tr>
+      <th scope="col">Check</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">PhoneNumber</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let post of posts">
+      <td><input type="checkbox" name="isActive" (click) = "checkEmployee(post.EmpID, $event)"></td>
+      <td>{{post.Name}}</td>
+      <td><a class="blueLink" routerLink = "employee" (click) = "pushToObj(post)">{{post.Address}}</a></td>
+      <td>{{post.PhoneNumber}}</td>
+      <td>{{post.Email}}</td>
+    </tr>
+  </tbody>
+</table>

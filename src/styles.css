@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+blueText
+
+.blueLink{
+  color: blue !important;
+  text-decoration: underline;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+/* label {
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid black;
+  padding: 0 5px;
+  margin-right: 10px;
+  background: #d6d6c2;
+}
+
+input {
+  width: 100px;
+} */
